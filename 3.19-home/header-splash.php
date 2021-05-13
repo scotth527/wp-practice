@@ -15,7 +15,6 @@
       </a>
 
       <header id="masthead" class="site-header" role="banner">
-            <?php dynamic_sidebar( 'header-sidebar' ); ?>
 
         <div class="notice">
           <p>NEW - Lorem to the sell thisum!</p>

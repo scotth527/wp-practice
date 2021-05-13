@@ -8,6 +8,11 @@
         <?php printf( esc_html__( 'Proudly powered by %s', 'wphierarchy' ),
          'WordPress'); ?>
     </a>
+
+
+    <?php if( is_active_sidebar( 'footer-sidebar' ) ): ?>
+        <?php dynamic_sidebar( 'footer-sidebar' ); ?>
+    <?php endif; ?>
 </footer>
 </div><!-- #page -->
 

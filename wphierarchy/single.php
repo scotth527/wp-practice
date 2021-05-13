@@ -1,11 +1,11 @@
-<?php get_header(); ?>
+<?php get_header( ); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
         <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
-            <?php get_template_part( 'template-parts/content', 'page' ); ?>
+            <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 
         <?php endwhile; else: ?>
 
@@ -14,6 +14,8 @@
         <?php endif; ?>
     </main>
 </div>
+
+<p>Single.php</p>
 
 <?php get_sidebar(); ?>
 

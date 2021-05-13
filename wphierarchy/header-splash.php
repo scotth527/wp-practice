@@ -9,6 +9,9 @@
     </head>
         <body <?php body_class(); ?>>
         <div class="" id="page">
+            <?php if( is_active_sidebar( 'header-sidebar' ) ): ?>
+                <?php dynamic_sidebar( 'header-sidebar' ); ?>
+            <?php endif; ?>
 
         <a href="content" class="skip-link screen-reader-text">
             <?php esc_html_e("Skip to content", 'wphierarchy'); ?>
@@ -42,4 +45,3 @@
 
         <div class="site-content" id="content">
             Site content
-        

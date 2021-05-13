@@ -5,7 +5,7 @@
 
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
-add_theme_support( 'post_format', ['aside', 'gallery', 'link', 'image', 'quote',
+add_theme_support( 'post-formats', ['aside', 'gallery', 'link', 'image', 'quote',
  'status', 'video', 'audio', 'chat'] );
 add_theme_support( 'html5' );
 add_theme_support( 'automatic-feed-links' );
@@ -47,6 +47,16 @@ function wphierarchy_widgets_init() {
         'name' => esc_html__( 'Header Widget-area', 'wphierarchy' ),
         'id'  => 'header-sidebar',
         'description' => esc_html__( 'Add widgets for header here', 'wphierarchy' ),
+        'before_widget' => '<section class="widget">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="widget-title>"',
+        'after_title' => '</h2>',
+    ]);
+
+    register_sidebar([
+        'name' => esc_html__( 'Footer Widget-area', 'wphierarchy' ),
+        'id'  => 'footer-sidebar',
+        'description' => esc_html__( 'Add widgets for footer here', 'wphierarchy' ),
         'before_widget' => '<section class="widget">',
         'after_widget' => '</section>',
         'before_title' => '<h2 class="widget-title>"',

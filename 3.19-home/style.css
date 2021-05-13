@@ -1,19 +1,15 @@
 /*
 Theme Name: WP Hierarchy
-Theme URI: https://wordpress.org/themes/twentytwenty/
-Author: Scott Huang
-Author URI: https://huangscott.com/
-Description: Demo theme for learning wp
-Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Author: Zac Gordon
+Author URI: https://zacgordon.com/
+Description: Demo theme for learning the WordPress Template Hierarchy
 Version: 1.0
-Requires at least: 5.0
-Tested up to: 5.4
-Requires PHP: 7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: twentytwenty
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Text Domain: wphierarchy
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+
+Lorem to the longer descriptionum.
 */
 
 body {
@@ -164,7 +160,7 @@ footer.site-footer {
 
 article.post {
   margin-bottom: 4rem;
-  clear: both;
+  clear: both;  
 }
 
 .author article.post {
