@@ -12,7 +12,9 @@
 
                 </header>
                 <div class="entry-content">
-                    <a href="<?php echo $post->guid ?>">Download</a>
+
+                    <video src="<?php esc_url( $post->guid ); ?>" controls></video>
+
                     <?php the_content(); ?>
                 </div>
 

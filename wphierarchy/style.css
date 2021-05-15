@@ -21,6 +21,10 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+body.postid-1470 {
+    background-color: #AB8BED;
+}
+
 body.tag-50,
 body.category-9 {
   background-color: #a7ff91;

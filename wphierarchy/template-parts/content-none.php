@@ -5,6 +5,8 @@
     <div class="entry-content">
         <p>
             <?php esc_html_e( 'Sorry! No content found.', 'wphierarchy' ); ?>
+
+            <p><?php echo get_search_form(  ); ?></p>
         </p>
     </div>
 </article>
