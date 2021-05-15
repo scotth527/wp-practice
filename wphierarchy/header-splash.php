@@ -22,11 +22,14 @@
         <div class="site-branding">
             <p class="site-title">
                 <a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <?php bloginfo( 'name' ); ?>
+                    Name: <?php bloginfo( 'name' ); ?>
                 </a>
             </p>
             <p class="site-description" >
-                <?php bloginfo( 'description' ); ?>
+                Description: <?php bloginfo( 'description' ); ?>
+            </p>
+            <p> <a href="<?php bloginfo( 'url' ) ?>">Home link</a>
+
             </p>
         </div>
 
