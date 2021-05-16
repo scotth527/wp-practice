@@ -34,6 +34,10 @@ function wphierarchy_enqueue_scripts() {
     //time stamp, time is bad for production but good for developmenet for production do 1.1
     wp_enqueue_script( 'theme-js', get_stylesheet_directory_uri() . '/assets/js/jquery.theme.js',
     ['jquery', 'masonry'], time(), true );
+
+    if ( is_singular() && comments_open() ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
     //Can add multiple dependencies
 }
 
@@ -99,6 +103,12 @@ function wphierarchy_widgets_init() {
         'after_title' => '</h2>',
     ]);
 }
-add_action( 'widgets_init', 'wphierarchy_widgets_init' );
+    add_action( 'widgets_init', 'wphierarchy_widgets_init' );
+
+    // Comment Custom callback
+    function wptag_comment() {
+        //Make a comment.php file
+        get_template_part( 'comment' );
+    }
 
  ?>

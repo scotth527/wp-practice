@@ -1,5 +1,8 @@
 <?php
-
+/*
+IF the current post is protected by a password and the vistitor has not yet
+entered the passsword we will return early without loading the comments.
+*/
 if ( post_password_required() ) {
 	return;
 }
@@ -38,10 +41,16 @@ if ( post_password_required() ) {
 
 		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				) );
+
+				$args = [
+
+					'callback' => 'wptag_comment',
+					// 'style'      => 'ol',
+					// 'short_ping' => true
+				];
+				wp_list_comments( $args );
+
+				paginate_comments_links(  );
 			?>
 		</ol><!-- .comment-list -->
 
