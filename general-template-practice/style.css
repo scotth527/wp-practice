@@ -23,3 +23,34 @@ body {
 aside {
     float: right;
 }
+
+#menu-main-menu, #menu-footer-menu {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#menu-main-menu > li, #menu-footer-menu > li {
+    margin-right: 2em;
+}
+
+#menu-main-menu > li > a {
+    text-decoration: none;
+}
+
+.menu-item-has-children {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-item-has-children:hover .sub-menu {
+    display:block;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: pink;
+    z-index: 1;
+}

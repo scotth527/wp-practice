@@ -21,7 +21,14 @@
             </div>
 
             <nav id="site-navigation" class="main-navigation" role="navigation">
+                <?php
+                $args = [
+                    'theme_location' => 'main-menu'
+                    //Throw in here whatever is in main-menu set up
+                ];
 
+                wp_nav_menu( $args );
+                ?>
             </nav>
 
         </header>

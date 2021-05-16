@@ -8,6 +8,15 @@
          'WordPress'); ?>
     </a>
 
+    <?php
+    $args = [
+        'theme_location' => 'footer-menu'
+        //Throw in here whatever is in main-menu set up
+    ];
+
+    wp_nav_menu( $args );
+    ?>
+
 </footer>
 </div><!-- #page -->
 

@@ -3,7 +3,7 @@
 //Add theme support
 
 add_theme_support( 'title-tag' );
-add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails', ['page', 'post'] );
 add_theme_support( 'post-formats', ['aside', 'gallery', 'link', 'image', 'quote',
  'status', 'video', 'audio', 'chat'] );
 add_theme_support( 'html5' );
@@ -21,6 +21,12 @@ function wpgeneral_practice_enqueue_styles() {
     wp_enqueue_style( 'main-css', get_stylesheet_directory_uri() . '/style.css', [], time(), 'all' );
     //This array makes sure that main-css gets loaded before custom-css
 }
+
+//Register menu locations
+register_nav_menus( [
+    'main-menu' => esc_html__( 'Main Menu', 'wpgeneral-template-practice' ),
+    'footer-menu' => esc_html__( 'Footer Menu', 'wpgeneral-template-practice' )
+]);
 
 //When you start loading the file do what the function does
 add_action('wp_enqueue_scripts', 'wpgeneral_practice_enqueue_styles');

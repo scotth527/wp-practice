@@ -42,7 +42,8 @@ add_action('wp_enqueue_scripts', 'wphierarchy_enqueue_scripts');
 
 //Register menu locations
 register_nav_menus( [
-    'main-menu' => esc_html__( 'Main Menu', 'wphierarchy' ),
+    'main-menu' => esc_html__( 'Main Menu', 'wpgeneral-template-practice' ),
+    'footer-menu' => esc_html__( 'Footer Menu', 'wpgeneral-template-practice' )
 ]);
 
 //Setup widget areas
