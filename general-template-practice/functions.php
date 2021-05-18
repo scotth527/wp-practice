@@ -14,6 +14,9 @@ add_theme_support( 'custom-logo' );
 add_theme_support( 'custom-selective-refresh-widgets' );
 add_theme_support( 'starter-content' );
 
+//Include R Debug
+require( dirname(__FILE__) . '/lib/r-debug.php' );
+
 //Load in our css, name space name of site so that it does not conflict with others
 function wpgeneral_practice_enqueue_styles() {
     //Array is dependencies,
@@ -46,5 +49,38 @@ function wphierarchy_widgets_init() {
 
 }
 add_action( 'widgets_init', 'wphierarchy_widgets_init' );
+
+//Load in our css, name space name of site so that it does not conflict with others
+function wpgeneral_enqueue_scripts() {
+    //Array is dependencies,
+    //time stamp, time is bad for production but good for developmenet for production do 1.1
+    // wp_enqueue_script( 'theme-js', get_stylesheet_directory_uri() . '/assets/js/jquery.theme.js',
+    // ['jquery', 'masonry'], time(), true );
+
+    if ( is_singular() && comments_open() ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
+    //Can add multiple dependencies
+}
+
+//When you start loading the file do what the function does
+add_action('wp_enqueue_scripts', 'wpgeneral_enqueue_scripts');
+
+function wptag_comment() {
+    get_template_part( 'comment' );
+}
+
+
+//Display custom footer message
+function wphooks_before_footer_message() {
+
+    //Avoid writing html in functions.php instead
+    //echo '<p>My custom footer text!</p>';
+    locate_template( 'template-parts/before-footer.php', true );
+
+    //remove_action( 'wphooks_before_footer', 'wphooks_before_footer_message', 10 );
+}
+
+add_action( 'wphooks_before_footer', 'wphooks_before_footer_message', 10 )
 
  ?>

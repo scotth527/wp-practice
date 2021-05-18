@@ -2,6 +2,10 @@
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer" role="contentinfo">
+
+    <?php do_action( 'wphooks_before_footer' ); ?>
+
+
     <a href="<<?php echo esc_url( __( 'https://wordpress.org/', 'wphierarchy') );
     ?>">
         <?php printf( esc_html__( 'Proudly powered by %s', 'wphierarchy' ),
