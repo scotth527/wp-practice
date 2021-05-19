@@ -10,7 +10,7 @@ if( ! is_active_sidebar('main-sidebar' ) ) {
 
 <?php wp_loginout( get_permalink( ) , true ); ?>
 
-<?php get_calendar( ); ?>
+<?php // get_calendar( ); ?>
 
 <?php
     $args = [
