@@ -111,4 +111,29 @@ function wphierarchy_widgets_init() {
         get_template_part( 'comment' );
     }
 
+    function wphooks_draft_mode_styles() {
+        global $post;
+
+        if( ! $post ) return;
+
+        if( 'draft' === $post->post_status ) {
+
+            wp_enqueue_style( 'wphooks-admin-css', get_stylesheet_directory_uri() .
+            '/assets/css/admin.css', [], time(), 'all' )
+            add_editor_style( 'assets/css/visual-editor.css' )
+        }
+
+
+    }
+
+    add_action( 'admin_enqueue_scripts', 'wphooks_draft_mode_styles' )
+
+    function wphooks_comments_cta() {
+        if( in_the_loop() ) {
+
+            locate_template( 'template-parts/comment-cta.php', true );
+        }
+    }
+
+    add_action( 'pre_get_comments', 'wphooks_comments_cta' );
  ?>
