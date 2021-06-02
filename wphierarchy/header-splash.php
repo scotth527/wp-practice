@@ -8,6 +8,12 @@
         <?php wp_head(); ?>
     </head>
         <body <?php body_class(); ?>>
+
+            <?php
+                $default_msg = esc_html_('Welcolme', 'wp_hooks');
+                $msg = apply_filters( 'welcome_message', $default_msg, $user );
+                echo $msg;
+             ?>
         <div class="" id="page">
             <?php if( is_active_sidebar( 'header-sidebar' ) ): ?>
                 <?php dynamic_sidebar( 'header-sidebar' ); ?>

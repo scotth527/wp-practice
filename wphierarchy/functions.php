@@ -1,5 +1,16 @@
 <?php
 
+//Add filter, default priority is 10
+add_filter( 'welcomoe_message', 'user_welcome', 100 );
+function user_welcome( $msg, $user ) {
+    $new_msg = $msg . '' .$user->first_name . '!';
+    return $new_msg;
+}
+
+//Remove filter 
+// remove_filter('welcome_message', 'user_welcome', 100);
+
+
 
 //Add theme support
 
