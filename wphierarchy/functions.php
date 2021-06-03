@@ -7,9 +7,12 @@ function user_welcome( $msg, $user ) {
     return $new_msg;
 }
 
-//Remove filter 
+//Remove filter
 // remove_filter('welcome_message', 'user_welcome', 100);
 
+//Plugins to look help identify active filters
+//Debug bar
+//Debug bar filter actions and filters
 
 
 //Add theme support
