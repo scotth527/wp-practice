@@ -9,6 +9,14 @@
          'WordPress'); ?>
     </a>
 
+    <?php
+        $footer_message = '&copy;' . date('Y') . ' ' . get_bloginfo('name');
+     ?>
+
+     <p>
+         <?php echo apply_filters( 'wphooks_footer_message', $footer_message ); ?>
+     </p>
+
 
     <?php if( is_active_sidebar( 'footer-sidebar' ) ): ?>
         <?php dynamic_sidebar( 'footer-sidebar' ); ?>

@@ -1,11 +1,18 @@
 <?php
 
 //Add filter, default priority is 10
-add_filter( 'welcomoe_message', 'user_welcome', 100 );
+add_filter( 'welcome_message', 'user_welcome', 100 );
 function user_welcome( $msg, $user ) {
     $new_msg = $msg . '' .$user->first_name . '!';
     return $new_msg;
 }
+
+
+function wphooks_make_uppercase( $message ) {
+    $new_message = stroupper( $ message );
+    return $new_message;
+}
+add_filter('wphooks_footer_message', 'wphooks_make_uppercase', 15);
 
 //Remove filter
 // remove_filter('welcome_message', 'user_welcome', 100);
