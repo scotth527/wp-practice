@@ -22,6 +22,20 @@ add_filter('wphooks_footer_message', 'wphooks_make_uppercase', 15);
 //Debug bar filter actions and filters
 
 
+function wptags_title_markup () {
+    if ( is_singular() && in_the_loop() ) {
+        $title = '<h1>' . $title . '</h1>';
+    } else if ( !is_singular() && in_the_loop() ) {
+        $title = '<h2><a href="' . get_permalink( $id ) . '">' . $title . '</a></h2>';
+    }
+
+    return title;
+}
+add_filter('the_title', 'wptags_title_markup', 10, 2 );
+//10 is the priority
+//Second numeric paramter 2 says how many params are expected
+
+
 //Add theme support
 
 add_theme_support( 'title-tag' );
