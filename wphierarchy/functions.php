@@ -36,6 +36,36 @@ add_filter('the_title', 'wptags_title_markup', 10, 2 );
 //Second numeric paramter 2 says how many params are expected
 
 
+function wptags_content_ads( $content ) {
+    if ( !in_the_loop() ) {
+        return;
+    }
+
+    $paragraphs;
+
+    //Searches for anything wrapped in a p tag
+    $pattern = "/<p>.*?<\/p>/m";
+    $p_count = preg_match_all( $pattern, $content, $paragraphs );
+    $paragraphs = $paragraphs[0];
+
+    // Find the middle $paragraphs
+    $ad_p_number = floor( $p_count / 2 );
+    if( 0 == $ad_p_number ) $ad_p_number = 1;
+    $ad_p = $paragraphs[ $ad_p_number -1 ];
+
+    //Create the ad
+    $post_ad = '<div class="post-ad"><h2>Post Add</h2></div>';
+    $ad_p_w_ad = '<p>' . $ad_p . '</p>' . $post_ad;
+
+    //Replace original paragraph with the ad
+    $content_w_ad = str_replace( $ad_p, $ad_p_w_ad, $content );
+
+    return $content_w_ad;
+}
+
+add_filter('the_content', 'wptags_content_ads', 10 );
+
+
 //Add theme support
 
 add_theme_support( 'title-tag' );
