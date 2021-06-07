@@ -66,6 +66,19 @@ function wptags_content_ads( $content ) {
 add_filter('the_content', 'wptags_content_ads', 10 );
 
 
+function wphooks_read_more_link( $read_more_text ) {
+    global $post;
+    $new_read_more = '... <a class="more-link" href="'
+                     . get_permalink( $post->ID )
+                     . '">'
+                     . esc_html__( 'Read More &gt;', 'wphooks' )
+                     . '</a>';
+
+    return $new_read_more;
+}
+add_filter( 'excerpt_more', 'wphooks_read_more_link', 10 );
+
+
 //Add theme support
 
 add_theme_support( 'title-tag' );
