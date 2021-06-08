@@ -78,7 +78,23 @@ function wphooks_read_more_link( $read_more_text ) {
 }
 add_filter( 'excerpt_more', 'wphooks_read_more_link', 10 );
 
+function wphooks_custom_body_classes( $classes ) {
+    if( 'page' === get_post_type() ) {
+        $classes[] = 'wphooks-page';
+    }
 
+    return $classes;
+}
+add_filter( 'body_class', 'wphooks_custom_body_classes' );
+
+function wphooks_customize_post_columns( $columns ) {
+    unset( $columns['author'] );
+    unset( $columns['categories'] );
+    unset( $columns['tags'] );
+    unset( $columns['comments'] );
+    return $columns;
+}
+add_filter( 'manage_posts_columns', 'wphooks_customize_post_columns', 100 );
 //Add theme support
 
 add_theme_support( 'title-tag' );
