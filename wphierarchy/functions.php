@@ -95,7 +95,18 @@ function wphooks_customize_post_columns( $columns ) {
     return $columns;
 }
 add_filter( 'manage_posts_columns', 'wphooks_customize_post_columns', 100 );
+
+function remove_the_vowels( $title ) {
+    $title = preg_replace( '/[aeiou]/i', '', $title );
+    return $title;
+}
+
+add_filter( 'the_title', 'remove_the_vowels' );
+
+
 //Add theme support
+
+
 
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
