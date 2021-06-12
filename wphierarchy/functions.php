@@ -103,6 +103,14 @@ function remove_the_vowels( $title ) {
 
 add_filter( 'the_title', 'remove_the_vowels' );
 
+function filter_bad_languge( $content ) {
+    $badwords = array('fopdoogle', 'gobermouch', 'yaldson');
+    $content = str_ireplace( $badwords, '{censored}', $content );
+    return $content;
+}
+
+//Example comment filter
+add_filter( 'comment_text', 'filter_bad_language' );
 
 //Add theme support
 
