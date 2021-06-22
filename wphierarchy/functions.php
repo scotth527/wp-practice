@@ -113,7 +113,20 @@ function filter_bad_languge( $content ) {
 //Example comment filter, gets string and checks for bad words and replaces them
 add_filter( 'comment_text', 'filter_bad_language' );
 
+
+function wphooks_excerpt_length( $length_in_words ) {
+    $new_length_in_words = 20;
+    return $new_length_in_words;
+}
+
+add_filter( 'excerpt_length', 'wphooks_excerpt_length' , 20 );
+//Limits length of excerpt to 55 char
+$exceprt_length = apply_filters( 'excerpt_length', 55 );
+
+
+
 //Add theme support
+
 
 
 
