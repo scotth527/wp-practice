@@ -1,5 +1,30 @@
 <?php
 
+use DOMDocument;
+
+add_filter( 'the_content', 'filterHrefs' );
+function filterHrefs( $content ) {
+    // Make sure there is content to parse (and properly encode the HTML entities).
+    $domDocument = new DOMDocument();
+    libxml_use_internal_errors(true);
+    $domContent = $domDocument->loadHTML(mb_convert_encoding( $content, 'HTML-ENTITIES' ));
+    libxml_use_internal_errors(false);
+    if ( false === $domContent ) {
+        return $content;
+    }
+
+    $anchors = $domDocument->getElementsByTagName('a');
+    if( 0 === count( $anchors )) {
+        return $content;
+    }
+
+    foreach ($anchors as $anchor) {
+        $anchor->setAttribute('href', untrailingslashit($anchor->getAttribute('href')));
+    }
+
+    return wp_kses_post($domDocument->saveHTML());
+}
+
 //Add filter, default priority is 10
 add_filter( 'welcome_message', 'user_welcome', 100 );
 function user_welcome( $msg, $user ) {
