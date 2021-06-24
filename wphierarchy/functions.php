@@ -151,6 +151,20 @@ add_filter( 'caldera_forms_render_field_type-button', 'wphooks_change_caldera_bu
 //Add theme support
 
 
+function extractAnchor( $string ) {
+    $dom = new DOMDocument();
+    $dom -> loadHTML( $string );
+    $output = array();
+    foreach ($dom->getElementsByTagName('a') as $item ) {
+        $output[] = array (
+            'str' => $dom->saveHTML( $item ),
+            'href' => $item->getAttribute('href'),
+            'anchorText' => $item->nodeValue
+        )
+    }
+    return $output;
+}
+
 
 
 add_theme_support( 'title-tag' );
