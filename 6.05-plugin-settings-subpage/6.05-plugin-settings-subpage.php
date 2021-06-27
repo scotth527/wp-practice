@@ -28,16 +28,17 @@ function wpplugin_settings_pages()
     'wpplugin',
     'wpplugin_settings_page_markup',
     'dashicons-wordpress-alt',
-    100
+    100 //Priority
   );
 
   add_submenu_page(
-    'wpplugin', // Name of the main page that it comes from
+    'wpplugin', // Name of the main page that it comes from, can swap this out for existing dashboard pages like tools.php
+    //Would go nested in tools
     __( 'Plugin Feature 1', 'wpplugin' ), // Name of title
     __( 'Feature 1', 'wpplugin' ), // What you want to appear in the menu itself
     'manage_options',
     'wpplugin-feature-1', // Unique slug
-    'wpplugin_settings_subpage_markup' // Call back to build out code for the page 
+    'wpplugin_settings_subpage_markup' // Call back to build out code for the page
   );
 
   add_submenu_page(
