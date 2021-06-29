@@ -32,7 +32,7 @@ function wpplugin_settings_pages()
   );
 
   add_submenu_page(
-    'wpplugin', // Name of the main page that it comes from, can swap this out for existing dashboard pages like tools.php
+    'tools.php', // Name of the main page that it comes from, can swap this out for existing dashboard pages like tools.php
     //Would go nested in tools
     __( 'Plugin Feature 1', 'wpplugin' ), // Name of title
     __( 'Feature 1', 'wpplugin' ), // What you want to appear in the menu itself
@@ -53,7 +53,18 @@ function wpplugin_settings_pages()
 }
 add_action( 'admin_menu', 'wpplugin_settings_pages' );
 
+//Add a link to your settings page in your plugin, basically a shortcut to the settings for your plugin
+function wpplugin_add_settings_link( $links ) {
+    $settings_link = '<a href="admin.php?page=wpplugin">' . __( 'Settings', 'wpplugin' )
+    . '</a>';
+    array_push( $links, $settings_link );
+    return $links;
+}
 
+$filter_name = "plugin_action_links_" . plugin_basename( __FILE__ );
+add_filter( $filter_name, 'wpplugin_add_settings_link' );
+
+//
 function wpplugin_settings_page_markup()
 {
   // Double check user capabilities
